@@ -31,7 +31,7 @@ export default function Home() {
           {/* Hero Section */}
           <section className="relative flex flex-col items-start justify-center space-y-8 min-h-[600px] w-full pb-32 overflow-hidden">
             <div
-              className="absolute inset-0 z-0 w-full -top-40 mt-40 ml-15"
+              className="absolute inset-0 z-0 w-full -top-40 mt-40 ml-15 md:block hidden"
               style={{
                 transform: `translateY(${offset * 0.5}px)`,
                 transition: "transform 0.1s ease-out",
@@ -47,18 +47,6 @@ export default function Home() {
                   sizes="100vw"
                   quality={100}
                   style={{ objectPosition: "center 30%" }}
-                />
-              </div>
-              <div className="absolute inset-0 scale-125 md:scale-100">
-                <Image
-                  src="/4-1.png"
-                  alt="Background"
-                  fill
-                  className="object-contain w-full md:hidden"
-                  priority
-                  sizes="100vw"
-                  quality={100}
-                  style={{ objectPosition: "center 20%" }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
@@ -79,12 +67,23 @@ export default function Home() {
                 Find out more about skyfall
               </Link>
             </div>
+            <div className="absolute bottom-0 w-[120%] h-[200px] md:hidden mt-8">
+              <Image
+                src="/4-1.png"
+                alt="Background"
+                fill
+                className="object-contain"
+                priority
+                sizes="100vw"
+                quality={100}
+              />
+            </div>
           </section>
 
           {/* Navigation Module Section */}
-          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-[800px] overflow-hidden">
+          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full md:min-h-[800px] overflow-hidden">
             <div
-              className="absolute inset-0 z-0 w-[105%] -left-40 mr-40"
+              className="absolute inset-0 z-0 w-[105%] -left-40 mr-40 md:block hidden"
               style={{
                 transform: `translateY(${offset * 0.3}px)`,
                 transition: "transform 0.1s ease-out",
@@ -100,18 +99,6 @@ export default function Home() {
                   sizes="100vw"
                   quality={100}
                   style={{ objectPosition: "center 10%" }}
-                />
-              </div>
-              <div className="absolute inset-0 scale-150 md:scale-100">
-                <Image
-                  src="/mod0bc.png"
-                  alt="Navigation Module"
-                  fill
-                  className="object-contain w-full md:hidden"
-                  priority
-                  sizes="100vw"
-                  quality={100}
-                  style={{ objectPosition: "center 5%" }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
@@ -132,6 +119,17 @@ export default function Home() {
               >
                 Find out more about the navigation module
               </Link>
+            </div>
+            <div className="absolute bottom-20 w-[120%] h-[200px] md:hidden">
+              <Image
+                src="/mod0bc.png"
+                alt="Navigation Module"
+                fill
+                className="object-contain"
+                priority
+                sizes="100vw"
+                quality={100}
+              />
             </div>
           </section>
 
