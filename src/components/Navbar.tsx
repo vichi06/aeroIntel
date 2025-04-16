@@ -10,14 +10,13 @@ export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [showHamburger, setShowHamburger] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1000);
-      setShowHamburger(window.innerWidth < 1000);
+      const isMobileView = window.innerWidth < 1000;
+      setIsMobile(isMobileView);
     };
 
     // Initial check
@@ -127,14 +126,17 @@ export default function Navbar() {
 
           {/* Hamburger Menu - Show on mobile or when collapsed */}
           <div
-            className={`absolute right-16 transition-opacity duration-300 ${
-              isMobile || showHamburger ? "opacity-100" : "opacity-0"
+            className={`absolute right-4 lg:right-16 transition-opacity duration-300 ${
+              isMobile || isCollapsed
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
             }`}
           >
             <button
               id="hamburger-button"
               onClick={handleHamburgerClick}
               className="text-white p-2 rounded-md hover:bg-[var(--orange)] focus:outline-none cursor-pointer"
+              aria-label="Menu"
             >
               <svg
                 className="h-6 w-6"
