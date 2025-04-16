@@ -24,7 +24,7 @@ export default function Home() {
   const offset = useParallax();
 
   return (
-    <div className="min-h-screen bg-black text-white font-[family-name:var(--font-space-mono)]">
+    <div className="min-h-screen bg-black text-white">
       <Navbar />
       <div className="w-full">
         <main className="flex flex-col gap-16">
@@ -39,7 +39,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 scale-100 md:scale-100">
                 <Image
-                  src="/4-1.png"
+                  src="/images/4-1.png"
                   alt="Background"
                   fill
                   className="object-contain w-full"
@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="absolute bottom-0 w-[120%] h-[200px] md:hidden mt-8">
               <Image
-                src="/4-1.png"
+                src="/images/4-1.png"
                 alt="Background"
                 fill
                 className="object-contain"
@@ -91,7 +91,7 @@ export default function Home() {
             >
               <div className="absolute inset-0 scale-100 md:scale-100">
                 <Image
-                  src="/mod0bc.png"
+                  src="/images/modules/mod0bc.png"
                   alt="Navigation Module"
                   fill
                   className="object-contain w-full"
@@ -122,7 +122,7 @@ export default function Home() {
             </div>
             <div className="absolute bottom-20 w-[120%] h-[200px] md:hidden">
               <Image
-                src="/mod0bc.png"
+                src="/images/modules/mod0bc.png"
                 alt="Navigation Module"
                 fill
                 className="object-contain"
@@ -134,62 +134,17 @@ export default function Home() {
           </section>
 
           {/* Careers Section */}
-          <section className="relative flex flex-col items-center justify-center space-y-8 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full min-h-[600px] overflow-hidden my-4">
-            <div
-              className="absolute inset-0 z-0 w-full"
-              style={{
-                transform: `translateY(${offset * 0.2}px)`,
-                transition: "transform 0.1s ease-out",
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-black via-black/90 to-black" />
-            </div>
-            <div className="relative z-10 space-y-8">
-              <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--orange)] animate-pulse">
+          <section className="relative flex items-center justify-between w-full px-8 sm:px-12 lg:px-16 py-16 bg-[var(--orange)]">
+            <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
+              <div className="text-white font-bold text-2xl">
                 WE ARE LOOKING FOR TALENT!
-              </h3>
-              <p className="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Join our team of innovators and help shape the future of
-                autonomous drone technology.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/careers"
-                  className="bg-[var(--orange)] text-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--orange)]/50"
-                >
-                  EXPLORE CAREERS
-                </Link>
-                <Link
-                  href="/contact"
-                  className="border-2 border-[var(--orange)] text-[var(--orange)] hover:bg-[var(--orange)] hover:text-white px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105"
-                >
-                  CONTACT US
-                </Link>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
-                <div className="bg-[var(--grey)]/10 backdrop-blur-sm p-6 rounded-lg border border-[var(--orange)]/20 hover:border-[var(--orange)] transition-all duration-300">
-                  <h4 className="text-[var(--orange)] font-bold mb-2">
-                    Innovation
-                  </h4>
-                  <p className="text-gray-300 text-sm">Push boundaries</p>
-                </div>
-                <div className="bg-[var(--grey)]/10 backdrop-blur-sm p-6 rounded-lg border border-[var(--orange)]/20 hover:border-[var(--orange)] transition-all duration-300">
-                  <h4 className="text-[var(--orange)] font-bold mb-2">
-                    Growth
-                  </h4>
-                  <p className="text-gray-300 text-sm">Learn & develop</p>
-                </div>
-                <div className="bg-[var(--grey)]/10 backdrop-blur-sm p-6 rounded-lg border border-[var(--orange)]/20 hover:border-[var(--orange)] transition-all duration-300">
-                  <h4 className="text-[var(--orange)] font-bold mb-2">
-                    Impact
-                  </h4>
-                  <p className="text-gray-300 text-sm">Make a difference</p>
-                </div>
-                <div className="bg-[var(--grey)]/10 backdrop-blur-sm p-6 rounded-lg border border-[var(--orange)]/20 hover:border-[var(--orange)] transition-all duration-300">
-                  <h4 className="text-[var(--orange)] font-bold mb-2">Team</h4>
-                  <p className="text-gray-300 text-sm">Collaborate & create</p>
-                </div>
-              </div>
+              <Link
+                href="/careers"
+                className="bg-white text-[var(--orange)] hover:bg-black hover:text-white px-8 py-3 rounded-full text-lg font-medium transition-colors duration-200"
+              >
+                GO TO THE CAREERS PAGE
+              </Link>
             </div>
           </section>
         </main>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import logo from "../../public/logo/Logotextwhitetrans.png";
+import logo from "../../public/images/logo/Logotextwhitetrans.png";
 
 export default function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -80,7 +80,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="w-full bg-transparent font-[family-name:var(--font-space-mono)] fixed top-0 left-0 right-0 z-50">
+    <nav className="w-full bg-transparent fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -116,7 +116,7 @@ export default function Navbar() {
                     pathname === link.href
                       ? "bg-[var(--orange)] text-white"
                       : "bg-[var(--grey)] text-black hover:bg-[var(--orange)] hover:text-white"
-                  } px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200`}
+                  } px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200`}
                 >
                   {link.label}
                 </Link>
