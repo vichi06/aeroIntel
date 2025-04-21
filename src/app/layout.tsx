@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Space_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
-
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-space-mono",
-});
 
 export const metadata: Metadata = {
   title: "AeroIntel",
@@ -52,9 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${spaceMono.variable} antialiased flex flex-col min-h-screen bg-black`}
-      >
+      <body className="antialiased flex flex-col min-h-screen bg-black">
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>

@@ -1,7 +1,30 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function SkyfallDrone() {
+  const [openDetails, setOpenDetails] = useState({
+    keyAreaRecognition: false,
+    keyAreaLocalization: false,
+    satellite: false,
+    object: false,
+  });
+
+  const toggleDetails = (
+    section:
+      | "keyAreaRecognition"
+      | "keyAreaLocalization"
+      | "satellite"
+      | "object"
+  ) => {
+    setOpenDetails((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
@@ -49,103 +72,203 @@ export default function SkyfallDrone() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Key Area Recognition */}
-              <div className="flex flex-col items-center">
-                <div className="mb-4">
+              <div className="flex flex-col">
+                <div className="mb-4 w-full">
                   <Image
                     src="/images/skyfall/road1-frame.jpg"
                     alt="Road Recognition"
                     width={300}
-                    height={400}
-                    className="w-full h-auto rounded-lg"
+                    height={600}
+                    className="w-full h-[600px] object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--orange)] mb-4">
-                  Key area recognition
+                <h3 className="text-2xl font-bold text-white mb-4 w-full text-left">
+                  KEY AREA RECOGNITION
                 </h3>
                 <div className="w-32 h-1 bg-[var(--orange)] mb-4"></div>
                 <div className="w-full">
-                  <div className="border-b border-[var(--orange)]">
-                    <button className="w-full text-left p-4 text-[var(--orange)] font-bold">
+                  <div className="border-b border-white">
+                    <button
+                      onClick={() => toggleDetails("keyAreaRecognition")}
+                      className="w-full text-left p-4 text-white font-bold flex gap-2 hover:bg-gray-800 transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openDetails.keyAreaRecognition ? "rotate-90" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
                       Advanced Area Recognition
                     </button>
-                    <div className="p-4 text-gray-300">
-                      SKYFALL utilizes advanced machine learning algorithms to
-                      recognize and prioritize specific key areas, enabling it
-                      to detect and focus on mission-critical zones. For
-                      example, it can identify areas like roads, buildings and
-                      fields.
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        openDetails.keyAreaRecognition
+                          ? "max-h-[500px]"
+                          : "max-h-0"
+                      }`}
+                    >
+                      <div className="p-4 text-gray-300">
+                        SKYFALL utilizes advanced machine learning algorithms to
+                        recognize and prioritize specific key areas, enabling it
+                        to detect and focus on mission-critical zones. For
+                        example, it can identify areas like roads, buildings and
+                        fields.
+                      </div>
                     </div>
                   </div>
-                  <div className="border-b border-[var(--orange)]">
-                    <button className="w-full text-left p-4 text-[var(--orange)] font-bold">
+                  <div className="border-b border-white">
+                    <button
+                      onClick={() => toggleDetails("keyAreaLocalization")}
+                      className="w-full text-left p-4 text-white font-bold flex gap-2 hover:bg-gray-800 transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openDetails.keyAreaLocalization ? "rotate-90" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
                       Localization using Areas
                     </button>
-                    <div className="p-4 text-gray-300">
-                      Using these highlighted areas, the drone is able to
-                      navigate and find its precise current location.
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        openDetails.keyAreaLocalization
+                          ? "max-h-[500px]"
+                          : "max-h-0"
+                      }`}
+                    >
+                      <div className="p-4 text-gray-300">
+                        Using these highlighted areas, the drone is able to
+                        navigate and find its precise current location.
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Satellite Comparison */}
-              <div className="flex flex-col items-center">
-                <div className="mb-4">
+              <div className="flex flex-col">
+                <div className="mb-4 w-full">
                   <Image
                     src="/images/skyfall/v1s.png"
                     alt="Satellite Comparison"
                     width={300}
-                    height={400}
-                    className="w-full h-auto rounded-lg"
+                    height={600}
+                    className="w-full h-[600px] object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--orange)] mb-4">
-                  satellite comparison
+                <h3 className="text-2xl font-bold text-white mb-4 w-full text-left">
+                  SATELLITE COMPARISON
                 </h3>
-                <div className="w-32 h-1 bg-[var(--orange)] mb-4"></div>
+                <div className="w-32 h-1 bg-[var(--orange)] mb-4 ml-0"></div>
                 <div className="w-full">
-                  <div className="border-b border-[var(--orange)]">
-                    <button className="w-full text-left p-4 text-[var(--orange)] font-bold">
+                  <div className="border-b border-white">
+                    <button
+                      onClick={() => toggleDetails("satellite")}
+                      className="w-full text-left p-4 text-white font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openDetails.satellite ? "rotate-90" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
                       Satellite Imagery Analysis
                     </button>
-                    <div className="p-4 text-gray-300">
-                      Through integration with satellite imagery, SKYFALL
-                      enhances its situational awareness, matching real-time
-                      aerial views with satellite data for improved navigation.
-                      This capability is crucial for geospatial accuracy,
-                      especially in environments where ground visibility is
-                      limited or landmarks are scarce.
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        openDetails.satellite ? "max-h-[500px]" : "max-h-0"
+                      }`}
+                    >
+                      <div className="p-4 text-gray-300">
+                        Through integration with satellite imagery, SKYFALL
+                        enhances its situational awareness, matching real-time
+                        aerial views with satellite data for improved
+                        navigation. This capability is crucial for geospatial
+                        accuracy, especially in environments where ground
+                        visibility is limited or landmarks are scarce.
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Object Recognition */}
-              <div className="flex flex-col items-center">
-                <div className="mb-4">
+              <div className="flex flex-col">
+                <div className="mb-4 w-full">
                   <Image
                     src="/images/skyfall/v3.png"
                     alt="Object Recognition"
                     width={300}
-                    height={400}
-                    className="w-full h-auto rounded-lg"
+                    height={600}
+                    className="w-full h-[600px] object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-[var(--orange)] mb-4">
-                  object recognition
+                <h3 className="text-2xl font-bold text-white mb-4 w-full text-left">
+                  OBJECT RECOGNITION
                 </h3>
-                <div className="w-32 h-1 bg-[var(--orange)] mb-4"></div>
+                <div className="w-32 h-1 bg-[var(--orange)] mb-4 ml-0"></div>
                 <div className="w-full">
-                  <div className="border-b border-[var(--orange)]">
-                    <button className="w-full text-left p-4 text-[var(--orange)] font-bold">
+                  <div className="border-b border-white">
+                    <button
+                      onClick={() => toggleDetails("object")}
+                      className="w-full text-left p-4 text-white font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors cursor-pointer"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openDetails.object ? "rotate-90" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
                       Target Selection
                     </button>
-                    <div className="p-4 text-gray-300">
-                      SKYFALL&apos;s object recognition technology allows it to
-                      detect and classify critical objects in real-time, from
-                      access control devices to security threats. By
-                      distinguishing between various objects, SKYFALL can carry
-                      out complex last mile tasks.
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        openDetails.object ? "max-h-[500px]" : "max-h-0"
+                      }`}
+                    >
+                      <div className="p-4 text-gray-300">
+                        SKYFALL&apos;s object recognition technology allows it
+                        to detect and classify critical objects in real-time,
+                        from access control devices to security threats. By
+                        distinguishing between various objects, SKYFALL can
+                        carry out complex last mile tasks.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -156,10 +279,7 @@ export default function SkyfallDrone() {
           {/* Bayonet Mount System */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-bold text-[var(--orange)] mb-4">
-                Bayonet Mount System
-              </h2>
-              <p className="text-gray-300">
+              <p className="font-bold">
                 The SKYFALL drone has a bayonet mount, and the drone operator is
                 able to quickly mount different types of payloads for a specific
                 SKYFALL drone mission using an innovative Bayonet mount system.
@@ -194,19 +314,19 @@ export default function SkyfallDrone() {
 
           {/* Production Section */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center flex-col">
+              <h2 className="flex flex-col text-2xl font-bold text-[var(--orange)] mb-4">
+                One 3D printer makes a drone every 3 hours
+              </h2>
               <Image
                 src="/images/skyfall/filament.png"
                 alt="3D Printer Filament"
-                width={400}
-                height={400}
-                className="w-full h-auto rounded-lg"
+                width={200}
+                height={100}
+                className="rounded-lg"
               />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-[var(--orange)] mb-4">
-                One 3D printer makes a drone every 3 hours
-              </h2>
               <p className="text-gray-300">
                 Many drones currently used are custom-built drones that are not
                 easily manufacturable in large scale production. As a result,

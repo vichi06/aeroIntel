@@ -27,17 +27,31 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       <Navbar />
       <div className="w-full">
-        <main className="flex flex-col gap-16">
+        <main className="flex flex-col">
+          {/* Video Section */}
+          <section className="relative w-full h-screen overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/videos/DroneLaunch.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-black/40" />
+          </section>
+
           {/* Hero Section */}
-          <section className="relative flex flex-col items-start justify-center space-y-8 min-h-[600px] w-full pb-32 overflow-hidden">
+          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full md:min-h-[800px] overflow-hidden">
             <div
-              className="absolute inset-0 z-0 w-full -top-40 mt-40 ml-15 md:block hidden"
+              className="absolute inset-0 z-0 w-[95%] justify-self-end"
               style={{
-                transform: `translateY(${offset * 0.5}px)`,
+                transform: `translateY(${offset * 0.1}px)`,
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <div className="absolute inset-0 scale-100 md:scale-100">
+              <div className="absolute inset-0">
                 <Image
                   src="/images/4-1.png"
                   alt="Background"
@@ -46,12 +60,12 @@ export default function Home() {
                   priority
                   sizes="100vw"
                   quality={100}
-                  style={{ objectPosition: "center 30%" }}
+                  style={{ objectPosition: "center 10%" }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
             </div>
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-40">
+            <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white max-w-3xl text-left">
                 The world&apos;s first fully autonomous{" "}
                 <span className="text-[var(--orange)]">single use</span> drone
@@ -67,7 +81,7 @@ export default function Home() {
                 Find out more about skyfall
               </Link>
             </div>
-            <div className="absolute bottom-0 w-[120%] h-[200px] md:hidden mt-8">
+            <div className="relative w-full h-[200px] md:hidden">
               <Image
                 src="/images/4-1.png"
                 alt="Background"
@@ -81,15 +95,15 @@ export default function Home() {
           </section>
 
           {/* Navigation Module Section */}
-          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full md:min-h-[800px] overflow-hidden">
+          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full md:min-h-[500px] overflow-hidden mb-20">
             <div
-              className="absolute inset-0 z-0 w-[105%] -left-40 mr-40 md:block hidden"
+              className="absolute inset-0 z-0 w-[90%]"
               style={{
-                transform: `translateY(${offset * 0.3}px)`,
+                transform: `translateY(${offset * 0.2 - 200}px)`,
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <div className="absolute inset-0 scale-100 md:scale-100">
+              <div className="absolute inset-0">
                 <Image
                   src="/images/modules/mod0bc.png"
                   alt="Navigation Module"
@@ -98,7 +112,6 @@ export default function Home() {
                   priority
                   sizes="100vw"
                   quality={100}
-                  style={{ objectPosition: "center 10%" }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
@@ -120,7 +133,7 @@ export default function Home() {
                 Find out more about the navigation module
               </Link>
             </div>
-            <div className="absolute bottom-20 w-[120%] h-[200px] md:hidden">
+            <div className="relative w-full h-[200px] md:hidden">
               <Image
                 src="/images/modules/mod0bc.png"
                 alt="Navigation Module"
@@ -129,21 +142,35 @@ export default function Home() {
                 priority
                 sizes="100vw"
                 quality={100}
+                style={{ objectPosition: "center 0%" }}
               />
             </div>
           </section>
 
           {/* Careers Section */}
-          <section className="relative flex items-center justify-between w-full px-8 sm:px-12 lg:px-16 py-16 bg-[var(--orange)]">
+          <section className="relative flex items-center justify-between w-full px-12 sm:px-16 lg:px-20 py-16 bg-[var(--orange)]">
             <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
               <div className="text-white font-bold text-2xl">
                 WE ARE LOOKING FOR TALENT!
               </div>
               <Link
                 href="/careers"
-                className="bg-white text-[var(--orange)] hover:bg-black hover:text-white px-8 py-3 rounded-full text-lg font-medium transition-colors duration-200"
+                className="bg-transparent text-white border border-white px-8 py-3 text-lg font-bold transition-colors duration-200 flex items-center gap-2 hover:bg-white hover:text-[var(--orange)]"
               >
                 GO TO THE CAREERS PAGE
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </Link>
             </div>
           </section>

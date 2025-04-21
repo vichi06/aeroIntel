@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import logo from "../../public/images/logo/Logotextwhitetrans.png";
 
 export default function Navbar() {
-  const [isAtTop, setIsAtTop] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -31,7 +30,6 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsAtTop(window.scrollY === 0);
       const shouldCollapse = window.scrollY > 50;
       setIsCollapsed(shouldCollapse);
     };
@@ -88,7 +86,7 @@ export default function Navbar() {
             <Link
               href="/"
               className={`transition-opacity duration-300 ${
-                isAtTop ? "opacity-100" : "opacity-0"
+                isCollapsed ? "opacity-0" : "opacity-100"
               }`}
             >
               <Image
@@ -102,10 +100,8 @@ export default function Navbar() {
           {/* Navigation Tabs - Only show on desktop */}
           {!isMobile && (
             <div
-              className={`flex space-x-4 transition-all duration-500 ease-in-out ${
-                isCollapsed
-                  ? "opacity-0 translate-x-full scale-95"
-                  : "opacity-100 translate-x-0 scale-100"
+              className={`flex space-x-4 transition-opacity duration-300 ${
+                isCollapsed ? "opacity-0" : "opacity-100"
               }`}
             >
               {navLinks.map((link) => (
