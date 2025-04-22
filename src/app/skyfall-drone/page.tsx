@@ -28,20 +28,20 @@ export default function SkyfallDrone() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32">
+      <div className="mx-auto py-12 pt-32">
         <main className="flex flex-col gap-16">
           {/* Hero Section */}
           <section className="flex flex-col items-center text-center space-y-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--orange)]">
               Skyfall Drone
             </h1>
-            <div className="w-full max-w-4xl">
+            <div className="w-full">
               <Image
                 src="/images/skyfall/skyfallzoom2.png"
                 alt="Skyfall Drone"
                 width={1200}
                 height={800}
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto"
               />
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
@@ -56,7 +56,7 @@ export default function SkyfallDrone() {
           </section>
 
           {/* Navigation Capabilities Section */}
-          <section className="space-y-12">
+          <section className="space-y-12 px-20">
             <div className="w-full max-w-4xl mx-auto">
               <Image
                 src="/images/skyfall/3skyfall.png"
@@ -277,7 +277,7 @@ export default function SkyfallDrone() {
           </section>
 
           {/* Bayonet Mount System */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-20">
             <div>
               <p className="font-bold">
                 The SKYFALL drone has a bayonet mount, and the drone operator is

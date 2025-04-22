@@ -3,22 +3,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const useParallax = () => {
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setOffset(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return offset;
-};
+import useParallax from "@/hooks/useParallax";
 
 export default function Home() {
   const offset = useParallax();
@@ -29,7 +14,7 @@ export default function Home() {
       <div className="w-full">
         <main className="flex flex-col">
           {/* Video Section */}
-          <section className="relative w-full h-screen overflow-hidden">
+          <section className="relative w-full h-screen overflow-hidden z-10">
             <video
               autoPlay
               loop
@@ -43,11 +28,11 @@ export default function Home() {
           </section>
 
           {/* Hero Section */}
-          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full md:min-h-[800px] overflow-hidden">
+          <section className="relative flex flex-col items-end justify-center space-y-8 md:min-h-[800px]">
             <div
-              className="absolute inset-0 z-0 w-[95%] justify-self-end"
+              className="absolute inset-0 z-0 w-[100%] justify-self-end"
               style={{
-                transform: `translateY(${offset * 0.1}px)`,
+                transform: `translateY(${offset * 0.2 - 200}px)`,
                 transition: "transform 0.1s ease-out",
               }}
             >
@@ -60,13 +45,12 @@ export default function Home() {
                   priority
                   sizes="100vw"
                   quality={100}
-                  style={{ objectPosition: "center 10%" }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
             </div>
-            <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white max-w-3xl text-left">
+            <div className="relative z-10 w-[90%]">
+              <h1 className="text-6xl font-bold text-white max-w-3xl text-left">
                 The world&apos;s first fully autonomous{" "}
                 <span className="text-[var(--orange)]">single use</span> drone
               </h1>
@@ -81,23 +65,12 @@ export default function Home() {
                 Find out more about skyfall
               </Link>
             </div>
-            <div className="relative w-full h-[200px] md:hidden">
-              <Image
-                src="/images/4-1.png"
-                alt="Background"
-                fill
-                className="object-contain"
-                priority
-                sizes="100vw"
-                quality={100}
-              />
-            </div>
           </section>
 
           {/* Navigation Module Section */}
-          <section className="relative flex flex-col items-end justify-center space-y-8 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full md:min-h-[500px] overflow-hidden mb-20">
+          <section className="relative flex flex-col items-end justify-center space-y-8 min-h-[800px] overflow-hidden">
             <div
-              className="absolute inset-0 z-0 w-[90%]"
+              className="absolute inset-0 z-0"
               style={{
                 transform: `translateY(${offset * 0.2 - 200}px)`,
                 transition: "transform 0.1s ease-out",
@@ -108,7 +81,7 @@ export default function Home() {
                   src="/images/modules/mod0bc.png"
                   alt="Navigation Module"
                   fill
-                  className="object-contain w-full"
+                  className="object-cover w-full"
                   priority
                   sizes="100vw"
                   quality={100}
@@ -116,7 +89,7 @@ export default function Home() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
             </div>
-            <div className="relative z-10">
+            <div className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 w-full justify-items-end">
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white max-w-3xl text-right">
                 And a fully autonomous{" "}
                 <span className="text-[var(--orange)]">navigation module</span>{" "}
@@ -132,18 +105,6 @@ export default function Home() {
               >
                 Find out more about the navigation module
               </Link>
-            </div>
-            <div className="relative w-full h-[200px] md:hidden">
-              <Image
-                src="/images/modules/mod0bc.png"
-                alt="Navigation Module"
-                fill
-                className="object-contain"
-                priority
-                sizes="100vw"
-                quality={100}
-                style={{ objectPosition: "center 0%" }}
-              />
             </div>
           </section>
 
