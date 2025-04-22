@@ -28,14 +28,14 @@ export default function SkyfallDrone() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />
-      <div className="mx-auto py-12 pt-32">
-        <main className="flex flex-col gap-16">
+      <div className="mx-auto py-12 pt-32 px-4 sm:px-6 lg:px-8">
+        <main className="flex flex-col gap-8 md:gap-16">
           {/* Hero Section */}
-          <section className="flex flex-col items-center text-center space-y-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--orange)]">
+          <section className="flex flex-col items-center text-center space-y-4 md:space-y-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--orange)]">
               Skyfall Drone
             </h1>
-            <div className="w-full">
+            <div className="w-full max-w-4xl">
               <Image
                 src="/images/skyfall/skyfallzoom2.png"
                 alt="Skyfall Drone"
@@ -44,10 +44,10 @@ export default function SkyfallDrone() {
                 className="w-full h-auto"
               />
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white px-4">
               AUTONOMOUS, AI-POWERED, ONE-SHOT INTERCEPTOR DRONE
             </h2>
-            <p className="text-lg text-gray-300 max-w-3xl">
+            <p className="text-base sm:text-lg text-gray-300 max-w-3xl px-4">
               The world is changing at a rapid pace due to technological
               advances in the world of Artificial Intelligence. As a result, we
               are developing an interceptor drone that is able to defend the
@@ -56,7 +56,7 @@ export default function SkyfallDrone() {
           </section>
 
           {/* Navigation Capabilities Section */}
-          <section className="space-y-12 px-20">
+          <section className="space-y-8 md:space-y-12 px-4 sm:px-8 md:px-12 lg:px-20">
             <div className="w-full max-w-4xl mx-auto">
               <Image
                 src="/images/skyfall/3skyfall.png"
@@ -66,11 +66,11 @@ export default function SkyfallDrone() {
                 className="w-full h-auto rounded-lg"
               />
             </div>
-            <h2 className="text-3xl font-bold text-[var(--orange)] text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--orange)] text-center">
               Navigation Capabilities
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {/* Key Area Recognition */}
               <div className="flex flex-col">
                 <div className="mb-4 w-full">
@@ -79,13 +79,13 @@ export default function SkyfallDrone() {
                     alt="Road Recognition"
                     width={300}
                     height={600}
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[400px] md:h-[600px] object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 w-full text-left">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 w-full text-left">
                   KEY AREA RECOGNITION
                 </h3>
-                <div className="w-32 h-1 bg-[var(--orange)] mb-4"></div>
+                <div className="w-24 md:w-32 h-1 bg-[var(--orange)] mb-4"></div>
                 <div className="w-full">
                   <div className="border-b border-white">
                     <button
@@ -171,13 +171,13 @@ export default function SkyfallDrone() {
                     alt="Satellite Comparison"
                     width={300}
                     height={600}
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[400px] md:h-[600px] object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 w-full text-left">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 w-full text-left">
                   SATELLITE COMPARISON
                 </h3>
-                <div className="w-32 h-1 bg-[var(--orange)] mb-4 ml-0"></div>
+                <div className="w-24 md:w-32 h-1 bg-[var(--orange)] mb-4 ml-0"></div>
                 <div className="w-full">
                   <div className="border-b border-white">
                     <button
@@ -220,20 +220,20 @@ export default function SkyfallDrone() {
               </div>
 
               {/* Object Recognition */}
-              <div className="flex flex-col">
+              <div className="flex flex-col md:col-span-2 lg:col-span-1">
                 <div className="mb-4 w-full">
                   <Image
                     src="/images/skyfall/v3.png"
                     alt="Object Recognition"
                     width={300}
                     height={600}
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[400px] md:h-[600px] object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4 w-full text-left">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 w-full text-left">
                   OBJECT RECOGNITION
                 </h3>
-                <div className="w-32 h-1 bg-[var(--orange)] mb-4 ml-0"></div>
+                <div className="w-24 md:w-32 h-1 bg-[var(--orange)] mb-4 ml-0"></div>
                 <div className="w-full">
                   <div className="border-b border-white">
                     <button
@@ -277,9 +277,9 @@ export default function SkyfallDrone() {
           </section>
 
           {/* Bayonet Mount System */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-20">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-4 sm:px-8 md:px-12 lg:px-20">
             <div>
-              <p className="font-bold">
+              <p className="font-bold text-sm md:text-base">
                 The SKYFALL drone has a bayonet mount, and the drone operator is
                 able to quickly mount different types of payloads for a specific
                 SKYFALL drone mission using an innovative Bayonet mount system.
@@ -287,7 +287,7 @@ export default function SkyfallDrone() {
                 operations.
               </p>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <Image
                 src="/images/skyfall/t1.png"
                 alt="Bayonet Mount System 1"
@@ -307,15 +307,15 @@ export default function SkyfallDrone() {
                 alt="Bayonet Mount System 3"
                 width={200}
                 height={200}
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto rounded-lg md:col-span-1 col-span-2"
               />
             </div>
           </section>
 
           {/* Production Section */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-4 sm:px-8 md:px-12 lg:px-20">
             <div className="flex items-center justify-center flex-col">
-              <h2 className="flex flex-col text-2xl font-bold text-[var(--orange)] mb-4">
+              <h2 className="flex flex-col text-xl md:text-2xl font-bold text-[var(--orange)] mb-4 text-center">
                 One 3D printer makes a drone every 3 hours
               </h2>
               <Image
@@ -323,11 +323,11 @@ export default function SkyfallDrone() {
                 alt="3D Printer Filament"
                 width={200}
                 height={100}
-                className="rounded-lg"
+                className="rounded-lg w-full max-w-[200px]"
               />
             </div>
             <div>
-              <p className="text-gray-300">
+              <p className="text-sm md:text-base text-gray-300">
                 Many drones currently used are custom-built drones that are not
                 easily manufacturable in large scale production. As a result,
                 the SKYFALL was created, a drone with a strong focus on easy
