@@ -1,138 +1,139 @@
 "use client";
 
-import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import useParallax from "@/hooks/useParallax";
+import Hero from "@/components/Hero";
+import NavigationFeature from "@/components/NavigationFeature";
 
-export default function Home() {
-  const offset = useParallax();
+const partners = [
+  {
+    src: "/images/partners/p1.png",
+    alt: "Partner 1",
+  },
+  {
+    src: "/images/partners/p2.png",
+    alt: "Partner 2",
+  },
+  {
+    src: "/images/partners/p3.png",
+    alt: "Partner 3",
+  },
+  {
+    src: "/images/partners/p4.png",
+    alt: "Partner 4",
+  },
+];
 
+// Duplicate partners array for seamless loop
+const duplicatedPartners = [...partners, ...partners, ...partners, ...partners];
+
+export default function Pathfinder() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <Navbar />
       <div className="w-full">
         <main className="flex flex-col">
-          {/* Video Section */}
-          <section className="relative w-full h-screen overflow-hidden z-10">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/DroneLaunch.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-black/40" />
-          </section>
+          <Hero
+            src="/videos/nils.mp4"
+            title="PATHFINDER"
+            subtitle="VISUAL POSITIONING MODULE for GNSS-DENIED ENVIRONMENTS"
+            type="video"
+          />
 
-          {/* Hero Section */}
-          <section className="relative flex flex-col items-center md:items-end justify-center space-y-8 md:min-h-[900px] min-h-[600px] px-4 sm:px-6 md:px-8">
-            <div
-              className="absolute inset-0 z-0 w-[100%] justify-self-end"
-              style={{
-                transform: `translateY(${offset * 0.2 - 200}px)`,
-                transition: "transform 0.1s ease-out",
-              }}
-            >
-              <div className="absolute inset-0">
+          {/* Pathfinder Module Section */}
+          <section className="my-10">
+            <div className="px-4">
+              <div className="flex flex-col md:flex-row max-w-5xl mx-auto my-10 gap-8">
+                <div className="flex flex-col justify-center">
+                  <h2 className="text-[var(--orange)] text-3xl">
+                    PATHFINDER Module
+                  </h2>
+                  <p className="">
+                    PATHFINDER is an advanced visual positioning system that
+                    enables precise drone navigation in GNSS-denied
+                    environments. Utilizing a multi-layer approach combining
+                    computer vision and machine learning, it integrates three
+                    core technologies: real-time satellite imagery correlation,
+                    geometric pattern recognition, and terrain feature mapping.
+                    The system provides continuous position data through MavLink
+                    protocol, ensuring reliable autonomous navigation in
+                    challenging operational conditions.
+                  </p>
+                </div>
                 <Image
-                  src="/images/4-1.png"
-                  alt="Background"
-                  fill
-                  className="md:object-contain object-cover w-full md:object-[100%_100%] object-[50%_100%]"
-                  priority
-                  sizes="100vw"
-                  quality={100}
+                  src="/images/pathfinder/nav.png"
+                  alt="User Interface"
+                  width={500}
+                  height={500}
+                  className="w-full md:w-auto"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
             </div>
-            <div className="relative z-10 w-full md:w-[90%] text-center md:text-left">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white max-w-3xl mx-auto md:mx-0">
-                The world&apos;s first fully autonomous{" "}
-                <span className="text-[var(--orange)]">single use</span> drone
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mt-6 md:mt-8 mx-auto md:mx-0">
-                Skyfall is revolutionizing the drone industry with its
-                innovative single-use design and fully autonomous capabilities.
-              </p>
-              <Link
-                href="/skyfall-drone"
-                className="bg-[var(--orange)] text-white hover:bg-white hover:text-black px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-medium transition-colors duration-200 mt-6 md:mt-8 inline-block"
-              >
-                Find out more about skyfall
-              </Link>
+
+            {/* Compatible with */}
+            <div className="text-center">
+              <h3 className="text-2xl">Compatible with:</h3>
+              <div className="relative w-full overflow-hidden mt-5">
+                <div className="flex animate-scroll gap-4 whitespace-nowrap">
+                  {duplicatedPartners.map((partner, index) => (
+                    <Image
+                      src={partner.src}
+                      alt={partner.alt}
+                      width={200}
+                      height={200}
+                      key={`${partner.src}-${index}`}
+                      className="object-contain brightness-0 invert flex-shrink-0 w-[150px] md:w-[200px]"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
-          {/* Navigation Module Section */}
-          <section className="relative flex flex-col items-center md:items-end justify-center space-y-8 min-h-[600px] md:min-h-[800px] overflow-hidden px-4 sm:px-6 md:px-8">
-            <div
-              className="absolute inset-0 z-0"
-              style={{
-                transform: `translateY(${offset * 0.2 - 200}px)`,
-                transition: "transform 0.1s ease-out",
-              }}
-            >
-              <div className="absolute inset-0">
-                <Image
-                  src="/images/modules/mod0bc.png"
-                  alt="Navigation Module"
-                  fill
-                  className="object-cover w-full"
-                  priority
-                  sizes="100vw"
-                  quality={100}
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent" />
-            </div>
-            <div className="relative z-10 max-w-6xl mx-auto w-full text-center md:text-right md:justify-items-end">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-3xl mx-auto md:mx-0">
-                And a fully autonomous{" "}
-                <span className="text-[var(--orange)]">navigation module</span>{" "}
-                usable on any drone
+          {/* Navigation Features Section */}
+          <section className="flex max-w-5xl mx-auto text-center my-20 px-4">
+            <div className="w-full">
+              <h2 className="text-[var(--orange)] text-3xl">
+                Navigation Features
               </h2>
-              <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mt-6 md:mt-8 mx-auto md:mx-0">
-                Our cutting-edge navigation technology can be integrated into
-                any drone system, providing unparalleled autonomy and precision.
-              </p>
-              <Link
-                href="/navigation-module"
-                className="bg-[var(--orange)] text-white hover:bg-white hover:text-black px-6 sm:px-8 py-2 sm:py-3 rounded-full text-base sm:text-lg font-medium transition-colors duration-200 mt-6 md:mt-8 inline-block"
-              >
-                Find out more about the navigation module
-              </Link>
+              <div className="flex flex-col md:flex-row gap-8 mt-10 items-center">
+                <NavigationFeature
+                  src="/images/pathfinder/satellite.jpg"
+                  title="Satellite Image Matching"
+                  description="Real-time comparison with satellite imagery for precise positioning"
+                />
+                <NavigationFeature
+                  src="/images/pathfinder/road.jpg"
+                  title="Road Shape Recognition"
+                  description="Advanced algorithms for identifying and matching road shapes"
+                />
+                <NavigationFeature
+                  src="/images/pathfinder/intersection.png"
+                  title="Intersection Recognition"
+                  description="Identification of Intersections"
+                />
+              </div>
             </div>
           </section>
 
-          {/* Careers Section */}
-          <section className="relative flex flex-col sm:flex-row items-center justify-between w-full px-4 sm:px-6 md:px-8 lg:px-20 py-8 sm:py-12 md:py-16 bg-[var(--orange)]">
-            <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
-              <div className="text-white font-bold text-xl sm:text-2xl text-center sm:text-left">
-                WE ARE LOOKING FOR TALENT!
-              </div>
-              <Link
-                href="/careers"
-                className="bg-transparent text-white border border-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-bold transition-colors duration-200 flex items-center gap-2 hover:bg-white hover:text-[var(--orange)]"
-              >
-                GO TO THE CAREERS PAGE
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
+          {/* User Interface Section */}
+          <section className="flex flex-col md:flex-row max-w-5xl mx-auto gap-10 mt-15 mb-20 px-4">
+            <Image
+              src="/images/pathfinder/screenshot.jpg"
+              alt="User Interface"
+              width={500}
+              height={500}
+              className="w-full md:w-auto"
+            />
+            <div className="flex flex-col justify-center">
+              <h2 className="text-[var(--orange)] text-3xl">User interface</h2>
+              <p>
+                The PATHFINDER module features an intuitive user interface that
+                provides real-time visualization of navigation data, system
+                status, and performance metrics. The interface displays live
+                camera feeds, position tracking, and system diagnostics in a
+                clean, modern design. Operators can easily monitor the
+                system&apos;s performance and make adjustments through a
+                user-friendly dashboard.
+              </p>
             </div>
           </section>
         </main>

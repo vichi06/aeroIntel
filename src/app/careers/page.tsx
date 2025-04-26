@@ -16,7 +16,7 @@ export default function Careers() {
         <main className="flex flex-col gap-16">
           <section className="flex flex-col items-center text-center space-y-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--orange)]">
-              CAREERS
+              Jobs
             </h1>
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
               How to apply
@@ -55,9 +55,9 @@ export default function Careers() {
                 <span className="text-2xl">
                   {expandedJob === "robotics" ? "−" : "+"}
                 </span>
-                <h3 className="text-2xl font-bold text-black text-left">
+                <h4 className="text-2xl font-bold text-black text-left">
                   Robotics Engineer
-                </h3>
+                </h4>
               </div>
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -161,9 +161,9 @@ export default function Careers() {
                 <span className="text-2xl">
                   {expandedJob === "orbslam" ? "−" : "+"}
                 </span>
-                <h3 className="text-2xl font-bold text-black text-left">
+                <h4 className="text-2xl font-bold text-black text-left">
                   ORB-SLAM Software Engineer
-                </h3>
+                </h4>
               </div>
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
@@ -258,9 +258,9 @@ export default function Careers() {
                 <span className="text-2xl">
                   {expandedJob === "hardware" ? "−" : "+"}
                 </span>
-                <h3 className="text-2xl font-bold text-black text-left">
+                <h4 className="text-2xl font-bold text-black text-left">
                   Hardware/Robotics Engineer
-                </h3>
+                </h4>
               </div>
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${

@@ -9,24 +9,7 @@ import logo from "../../public/images/logo/Logotextwhitetrans.png";
 export default function Navbar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const checkMobile = () => {
-      const isMobileView = window.innerWidth < 1000;
-      setIsMobile(isMobileView);
-    };
-
-    // Initial check
-    checkMobile();
-
-    // Add event listener
-    window.addEventListener("resize", checkMobile);
-
-    // Cleanup
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,11 +52,11 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/skyfall-drone", label: "Skyfall Drone" },
-    { href: "/navigation-module", label: "Navigation Module" },
+    { href: "/", label: "PATHFINDER" },
+    { href: "/skyfall", label: "SKYFALL" },
+    { href: "/strike", label: "STRIKE" },
     { href: "/about-us", label: "About Us" },
-    { href: "/careers", label: "Careers" },
+    { href: "/careers", label: "Jobs" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -97,35 +80,31 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Navigation Tabs - Only show on desktop */}
-          {!isMobile && (
-            <div
-              className={`flex space-x-4 transition-opacity duration-300 ${
-                isCollapsed ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${
-                    pathname === link.href
-                      ? "bg-[var(--orange)] text-white"
-                      : "bg-[var(--grey)] text-black hover:bg-[var(--orange)] hover:text-white"
-                  } px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Hamburger Menu - Show on mobile or when collapsed */}
+          {/* Navigation Tabs - Hidden on mobile, visible on lg screens and up */}
           <div
-            className={`absolute right-4 lg:right-16 transition-opacity duration-300 ${
-              isMobile || isCollapsed
-                ? "opacity-100"
-                : "opacity-0 pointer-events-none"
+            className={`hidden lg:flex space-x-4 transition-opacity duration-300 ${
+              isCollapsed ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${
+                  pathname === link.href
+                    ? "bg-[var(--orange)] text-white"
+                    : "bg-[var(--grey)] text-black hover:bg-[var(--orange)] hover:text-white"
+                } px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Hamburger Menu - Show on mobile or when collapsed on desktop */}
+          <div
+            className={`absolute right-4 lg:right-16 ${
+              isCollapsed ? "lg:block" : "lg:hidden"
             }`}
           >
             <button
@@ -152,7 +131,7 @@ export default function Navbar() {
           {showMenu && (
             <div
               id="dropdown-menu"
-              className="absolute top-16 right-16 w-48 bg-white rounded-md shadow-lg py-1"
+              className="absolute top-16 right-4 lg:right-16 w-48 bg-white rounded-md shadow-lg py-1"
             >
               {navLinks.map((link) => (
                 <Link

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
-
+import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "AeroIntel",
   description: "AeroIntel - Advanced Drone Solutions",
@@ -46,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased flex flex-col min-h-screen bg-black">
+        <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
       </body>
