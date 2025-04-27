@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 
 export default function AboutUs() {
   return (
@@ -38,25 +37,6 @@ export default function AboutUs() {
               in order to achieve our common goals.
             </p>
           </section>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative h-96 w-full">
-              <Image
-                src="/people/foto1.jpg"
-                alt="Team Member 1"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-            <div className="relative h-96 w-full">
-              <Image
-                src="/people/foto2.jpg"
-                alt="Team Member 2"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-          </div>
         </main>
       </div>
     </div>

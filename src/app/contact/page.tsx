@@ -9,11 +9,36 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<{
+    type: "idle" | "loading" | "success" | "error";
+    message: string;
+  }>({ type: "idle", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    setStatus({ type: "loading", message: "Sending message..." });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setStatus({ type: "success", message: "Message sent successfully!" });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "Failed to send message. Please try again." + error,
+      });
+    }
   };
 
   const handleChange = (
@@ -53,6 +78,16 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="max-w-2xl mx-auto w-full bg-[#111] p-8 rounded-2xl shadow-lg border border-gray-800"
           >
+            {status.type === "success" && (
+              <div className="mb-6 p-4 bg-green-900/50 border border-green-500 rounded-lg text-green-400">
+                {status.message}
+              </div>
+            )}
+            {status.type === "error" && (
+              <div className="mb-6 p-4 bg-red-900/50 border border-red-500 rounded-lg text-red-400">
+                {status.message}
+              </div>
+            )}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label
@@ -70,6 +105,7 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--orange)] text-white transition-all duration-200"
                   required
                   placeholder="Your name"
+                  disabled={status.type === "loading"}
                 />
               </div>
 
@@ -89,6 +125,7 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--orange)] text-white transition-all duration-200"
                   required
                   placeholder="your.email@example.com"
+                  disabled={status.type === "loading"}
                 />
               </div>
 
@@ -108,6 +145,7 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-[#1a1a1a] border border-gray-700 rounded-lg focus:outline-none focus:border-[var(--orange)] text-white transition-all duration-200 resize-none"
                   required
                   placeholder="Your message here..."
+                  disabled={status.type === "loading"}
                 />
               </div>
 
@@ -115,9 +153,10 @@ export default function Contact() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-[var(--orange)] text-white py-4 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-colors duration-200 text-lg"
+                className="w-full bg-[var(--orange)] text-white py-4 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-colors duration-200 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={status.type === "loading"}
               >
-                Send Message
+                {status.type === "loading" ? "Sending..." : "Send Message"}
               </motion.button>
             </form>
           </motion.section>
