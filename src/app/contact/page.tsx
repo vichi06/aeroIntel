@@ -14,29 +14,29 @@ export default function Contact() {
     message: string;
   }>({ type: "idle", message: "" });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus({ type: "loading", message: "Sending message..." });
+    setStatus({ type: "loading", message: "Preparing email..." });
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      const subject = encodeURIComponent(
+        `New Contact Form Submission from ${formData.name}`
+      );
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoUrl = `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+      window.location.href = mailtoUrl;
+      setStatus({
+        type: "success",
+        message: "Email client opened successfully!",
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
-
-      setStatus({ type: "success", message: "Message sent successfully!" });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setStatus({
         type: "error",
-        message: "Failed to send message. Please try again." + error,
+        message: "Failed to open email client. Please try again." + error,
       });
     }
   };
