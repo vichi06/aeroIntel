@@ -1,7 +1,6 @@
 import KeyFeature from "@/components/KeyFeature";
 import KeyFeatures from "@/components/KeyFeatures";
 import { FaBrain, FaIndustry, FaTachometerAlt } from "react-icons/fa";
-import Image from "next/image";
 import Hero from "@/components/Hero";
 
 export default function NavigationModule() {
@@ -17,12 +16,10 @@ export default function NavigationModule() {
         <main className="flex flex-col gap-16">
           <div className="text-center">
             <p>In partnership with:</p>
-            <Image
+            <img
               src="/images/partners/airvolute.svg"
-              width="300"
-              height="200"
-              alt=""
-              className="m-auto"
+              alt="Airvolute"
+              className="m-auto w-[300px] h-[200px]"
             />
           </div>
 

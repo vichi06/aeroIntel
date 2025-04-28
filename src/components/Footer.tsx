@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import React from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
@@ -21,12 +20,10 @@ const Footer: React.FC = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image
+              <img
                 src="/images/logo/Logotextwhitetrans.png"
                 alt="AeroIntel Logo"
-                width={120}
-                height={120}
-                className="mx-auto"
+                className="mx-auto w-[120px] h-auto"
               />
             </Link>
           </div>
@@ -47,36 +44,12 @@ const Footer: React.FC = () => {
           {/* Social Media Icons */}
           <div className="flex space-x-4">
             <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors"
-            >
-              <FaFacebook size={20} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors"
-            >
-              <FaTwitter size={20} />
-            </a>
-            <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/aerospaceintelligence"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-300 transition-colors"
             >
               <FaLinkedin size={20} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors"
-            >
-              <FaInstagram size={20} />
             </a>
           </div>
         </div>

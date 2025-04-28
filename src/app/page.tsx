@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Hero from "@/components/Hero";
 import NavigationFeature from "@/components/NavigationFeature";
 
@@ -58,12 +57,10 @@ export default function Pathfinder() {
                     challenging operational conditions.
                   </p>
                 </div>
-                <Image
+                <img
                   src="/images/pathfinder/nav.png"
                   alt="User Interface"
-                  width={500}
-                  height={500}
-                  className="w-full md:w-auto"
+                  className="w-full md:w-auto h-[400px] object-contain"
                 />
               </div>
             </div>
@@ -74,13 +71,11 @@ export default function Pathfinder() {
               <div className="relative w-full overflow-hidden mt-5">
                 <div className="flex animate-scroll gap-4 whitespace-nowrap">
                   {duplicatedPartners.map((partner, index) => (
-                    <Image
+                    <img
                       src={partner.src}
                       alt={partner.alt}
-                      width={200}
-                      height={200}
                       key={`${partner.src}-${index}`}
-                      className="object-contain brightness-0 invert flex-shrink-0 w-[150px] md:w-[200px]"
+                      className="object-contain brightness-0 invert flex-shrink-0 w-[150px] md:w-[200px] h-[200px]"
                     />
                   ))}
                 </div>
@@ -94,34 +89,38 @@ export default function Pathfinder() {
               <h2 className="text-[var(--orange)] text-3xl">
                 Navigation Features
               </h2>
-              <div className="flex flex-col md:flex-row gap-8 mt-10 items-center">
-                <NavigationFeature
-                  src="/images/pathfinder/satellite.jpg"
-                  title="Satellite Image Matching"
-                  description="Real-time comparison with satellite imagery for precise positioning"
-                />
-                <NavigationFeature
-                  src="/images/pathfinder/road.jpg"
-                  title="Road Shape Recognition"
-                  description="Advanced algorithms for identifying and matching road shapes"
-                />
-                <NavigationFeature
-                  src="/images/pathfinder/intersection.png"
-                  title="Intersection Recognition"
-                  description="Identification of Intersections"
-                />
+              <div className="flex flex-col md:flex-row gap-8 mt-10">
+                <div className="flex-1">
+                  <NavigationFeature
+                    src="/images/pathfinder/satellite.jpg"
+                    title="Satellite Image Matching"
+                    description="Real-time comparison with satellite imagery for precise positioning"
+                  />
+                </div>
+                <div className="flex-1">
+                  <NavigationFeature
+                    src="/images/pathfinder/road.jpg"
+                    title="Road Shape Recognition"
+                    description="Advanced algorithms for identifying and matching road shapes"
+                  />
+                </div>
+                <div className="flex-1">
+                  <NavigationFeature
+                    src="/images/pathfinder/intersection.png"
+                    title="Intersection Recognition"
+                    description="Identification of Intersections"
+                  />
+                </div>
               </div>
             </div>
           </section>
 
           {/* User Interface Section */}
           <section className="flex flex-col md:flex-row max-w-5xl mx-auto gap-10 mt-15 mb-20 px-4">
-            <Image
+            <img
               src="/images/pathfinder/screenshot.jpg"
               alt="User Interface"
-              width={500}
-              height={500}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto h-[300px] object-contain"
             />
             <div className="flex flex-col justify-center">
               <h2 className="text-[var(--orange)] text-3xl">User interface</h2>

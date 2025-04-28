@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Hero from "@/components/Hero";
 import KeyFeatures from "@/components/KeyFeatures";
 import KeyFeature from "@/components/KeyFeature";
@@ -36,13 +35,11 @@ export default function SkyfallDrone() {
                   advanced 3D printing techniques.
                 </p>
               </div>
-              <div className="w-full lg:w-1/3 relative mt-6 lg:mt-0">
-                <Image
+              <div className="w-full lg:w-1/3 relative mt-6 lg:mt-0 flex justify-center">
+                <img
                   src="/images/skyfall/sk1.png"
                   alt="Skyfall Drone"
-                  width={800}
-                  height={800}
-                  className="object-contain w-full h-auto"
+                  className="object-contain w-[300px] h-auto"
                 />
               </div>
             </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import logo from "../../public/images/logo/Logotextwhitetrans.png";
 
@@ -54,8 +53,8 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image
-                src={logo}
+              <img
+                src={logo.src}
                 alt="AeroIntel Logo"
                 className="w-auto h-12 md:h-16"
               />

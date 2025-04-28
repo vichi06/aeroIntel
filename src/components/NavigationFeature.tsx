@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type NavigationFeatureProps = {
   src: string;
   title: string;
@@ -12,15 +10,13 @@ const NavigationFeature = ({
   description,
 }: NavigationFeatureProps) => {
   return (
-    <div className="rounded-lg w-80 border border-gray-800 bg-gray-950 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer">
-      <Image
+    <div className="rounded-lg w-80 h-full border border-gray-800 bg-gray-950 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer flex flex-col">
+      <img
         src={src}
         alt="Navigation Feature"
-        width={500}
-        height={500}
-        className="w-full"
+        className="w-full h-[200px] object-cover"
       />
-      <div className="p-4">
+      <div className="p-4 text-center flex-1 flex flex-col justify-center">
         <h4 className="text-[var(--orange)]">{title}</h4>
         <p>{description}</p>
       </div>
