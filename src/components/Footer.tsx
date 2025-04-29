@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="pt-6">
           <p className="text-sm md:text-base">
-            © 2025 AeroIntel. All rights reserved.
+            Copyright© 2025 | AEROINTEL | Kvk: 95156151
           </p>
         </div>
       </div>
