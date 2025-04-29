@@ -25,7 +25,8 @@ export default function ContactForm() {
       const body = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       );
-      const mailtoUrl = `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      const mailTo = "jasper@aerointel.eu";
+      const mailtoUrl = `mailto:${mailTo}?subject=${subject}&body=${body}`;
 
       window.location.href = mailtoUrl;
       setStatus({
