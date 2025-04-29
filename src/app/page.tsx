@@ -1,7 +1,11 @@
-"use client";
-
 import Hero from "@/components/Hero";
 import NavigationFeature from "@/components/NavigationFeature";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Pathfinder - AEROINTEL",
+  description: "Pathfinder - Advanced Drone Solutions",
+};
 
 const partners = [
   {

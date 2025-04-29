@@ -1,9 +1,13 @@
-"use client";
-
 import Hero from "@/components/Hero";
 import KeyFeatures from "@/components/KeyFeatures";
 import KeyFeature from "@/components/KeyFeature";
 import { FaIndustry, FaBrain, FaTachometerAlt } from "react-icons/fa";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Skyfall Drone - AEROINTEL",
+  description: "Skyfall Drone - Advanced Drone Solutions",
+};
 
 export default function SkyfallDrone() {
   return (

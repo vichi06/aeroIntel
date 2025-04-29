@@ -1,4 +1,10 @@
 import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us - AEROINTEL",
+  description: "About Us - Advanced Drone Solutions",
+};
 
 export default function AboutUs() {
   return (

@@ -2,6 +2,12 @@ import KeyFeature from "@/components/KeyFeature";
 import KeyFeatures from "@/components/KeyFeatures";
 import { FaBrain, FaIndustry, FaTachometerAlt } from "react-icons/fa";
 import Hero from "@/components/Hero";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Strike - AEROINTEL",
+  description: "Strike - Advanced Drone Solutions",
+};
 
 export default function NavigationModule() {
   return (
