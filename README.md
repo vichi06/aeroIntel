@@ -29,9 +29,27 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Hostinger
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To deploy your Next.js application on Hostinger without VPS (static website), follow these steps:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# aeroIntel
+1. **Build your Next.js application**
+
+   ```bash
+   npm run build
+   ```
+
+2. **Copy the output**
+
+   - Be sure that the build worked correctly (should see '(Static) prerendered as static content')
+   - Copy all the files from `out` directory:
+
+3. **Upload your files to Hostinger**
+
+   - On your Hostinger website dashboard, go into File Manager, `public_html` folder and delete all files excluding greyish ones (.htaccess).
+   - Upload the files of your `out` directory to the `public_html` folder.
+
+**Your website is up to date !**
+Your Next.js application should now be live on your Hostinger domain!
+
+!! If anything went wrong, Hostinger has **backups** done every week !!
