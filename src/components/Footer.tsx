@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const navLinks = [
     { href: "/", label: "PATHFINDER" },
     { href: "/skyfall", label: "SKYFALL" },
-    { href: "/strike", label: "STRIKE" },
+    // { href: "/strike", label: "STRIKE" },
     { href: "/about-us", label: "About Us" },
     { href: "/careers", label: "Jobs" },
     { href: "/contact", label: "Contact" },
