@@ -1,19 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 
 export default function FormSuccess() {
-  const router = useRouter();
-
   useEffect(() => {
-    // Redirect to home page after 5 seconds
+    // Redirect to home page after 5 seconds using window.location
     const timer = setTimeout(() => {
-      router.push("/");
+      window.location.href = "/";
     }, 5000);
 
     return () => clearTimeout(timer);
-  }, [router]);
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#111] to-[#0a0a0a]">

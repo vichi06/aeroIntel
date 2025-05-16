@@ -6,7 +6,8 @@ export default function ContactForm() {
   const [successUrl, setSuccessUrl] = useState("");
 
   useEffect(() => {
-    setSuccessUrl(`${window.location.origin}/success`);
+    // For static export, we'll use the full URL
+    setSuccessUrl(`${window.location.origin}/success.html`);
   }, []);
 
   return (
