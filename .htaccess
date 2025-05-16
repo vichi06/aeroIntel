@@ -1,0 +1,15 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# Redirect pretty URLs to .html files
+# So /about becomes /about.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+)/?$ $1.html [L]
+
+# If the file or directory exists, serve it
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, show custom 404
+ErrorDocument 404 /404.html
